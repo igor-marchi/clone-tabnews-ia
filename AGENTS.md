@@ -15,6 +15,11 @@ Clone do [TabNews](https://www.tabnews.com.br), plataforma brasileira de conteú
 - `npm run dev`: inicia o servidor de desenvolvimento em http://localhost:3000
 - `npm run build`: gera o build de produção
 - `npm start`: serve o build de produção
+- `npm run lint`: roda o ESLint no projeto
+- `npm run format`: formata os arquivos com o Prettier
+- `npm run format:check`: verifica a formatação sem alterar arquivos
+
+Ao executar qualquer tarefa que altere código, rode `npm run format`, depois `npm run lint` e `npm run format:check`. Corrija os problemas antes de dar a tarefa por concluída.
 
 ## Convenções
 
