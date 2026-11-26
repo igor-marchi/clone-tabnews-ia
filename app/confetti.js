@@ -1,25 +1,21 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import dynamic from "next/dynamic";
 
 // Fora do bundle inicial: o confete só roda depois da hidratação.
 const ReactConfetti = dynamic(() => import("react-confetti"), { ssr: false });
 
 export default function Confetti() {
-  const [size, setSize] = useState(null);
+  const [finished, setFinished] = useState(false);
 
-  useEffect(() => {
-    setSize({ width: window.innerWidth, height: window.innerHeight });
-  }, []);
+  if (finished) return null;
 
-  if (!size) return null;
-
+  // Sem width/height, o react-confetti usa o tamanho da janela.
   return (
     <ReactConfetti
-      {...size}
       recycle={false}
-      onConfettiComplete={() => setSize(null)}
+      onConfettiComplete={() => setFinished(true)}
     />
   );
 }
